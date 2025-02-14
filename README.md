@@ -1,4 +1,4 @@
-# Driving Agent Training
+# Driving-R1: The Aha moment for LLM-based Autonomous Driving
 
 This is an autonomous driving agent training project based on the Llama 3.1 8B model. The project uses GRPO (Generative Reinforcement Policy Optimization) method to train the model to generate appropriate control instructions based on scene descriptions.
 
