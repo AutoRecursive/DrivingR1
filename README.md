@@ -1,0 +1,66 @@
+# Driving Agent Training
+
+This is an autonomous driving agent training project based on the Llama 3.1 8B model. The project uses GRPO (Generative Reinforcement Policy Optimization) method to train the model to generate appropriate control instructions based on scene descriptions.
+
+## Project Structure
+
+```
+.
+├── README.md
+├── requirements.txt
+├── train.py
+└── src/
+    ├── data_processing.py
+    ├── model.py
+    └── reward_functions.py
+```
+
+## Key Features
+
+- Data Processing: Convert raw driving scenario data into the required training format
+- Model Training: Train the Llama model using GRPO method
+- Reward Functions: Include control value rewards and XML format rewards
+
+## Dataset
+
+The training dataset (`vqa_test_1k.pkl`) is sourced from [Wayve's Driving-with-LLMs repository](https://github.com/wayveai/Driving-with-LLMs/blob/main/data/vqa_test_1k.tar.gz). This dataset contains driving scenarios with corresponding control instructions.
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+1. Data Preparation:
+   - Ensure you have the `vqa_test_1k.pkl` data file
+   - Data format should include scene descriptions and corresponding control instructions
+
+2. Training:
+   ```bash
+   python train.py
+   ```
+
+## Model Input/Output Format
+
+Input Format:
+```
+Scene description text
+```
+
+Output Format:
+```xml
+<reasoning>
+Reasoning process
+</reasoning>
+<answer>
+longitudinal: {acceleration value between 0-1}, lateral: {steering value between -1 to 1}
+</answer>
+```
+
+## Notes
+
+- Model uses 4-bit quantization to reduce memory usage
+- Uses LoRA for efficient fine-tuning
+- Requires sufficient GPU memory to run the 8B parameter model 
