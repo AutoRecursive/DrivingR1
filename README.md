@@ -2,6 +2,16 @@
 
 This is an autonomous driving agent training project based on the Llama 3.1 8B model. The project uses GRPO (Generative Reinforcement Policy Optimization) method to train the model to generate appropriate control instructions based on scene descriptions.
 
+## Motivation & Background
+
+This project attempts to reproduce the DeepSeek-R1 "Aha Moment" in the context of LLM-based autonomous driving. The implementation is migrated from Colab and based on Unsloth's framework. The pipeline (on Colab) has been tested to work effectively with both LLAMA and Qwen (by modifying chat template and formats) models at the 8B parameter level (but this repo is still under development).
+
+Thanks to Unsloth's optimizations, these large models can be efficiently trained with PEFT (Parameter Efficient Fine-Tuning) using just 14GB of GPU memory, making it accessible for research and experimentation on consumer-grade hardware.
+
+### Limitations & Considerations
+
+While this serves as a proof-of-concept implementation of R1 for autonomous driving, it's important to note that the current dataset has significant limitations. The training data lacks crucial information such as velocity and other important geometric parameters, which would be essential for real-world autonomous driving applications. This implementation should be considered as a minimal reproduction for educational and research purposes.
+
 ## Project Structure
 
 ```
